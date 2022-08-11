@@ -10,6 +10,13 @@ Install dependency.
 pip install -r requirements.txt
 ```
 
+If you don't want to compare the ouput error between the MegEngine implementation and PyTorch one,  just ignore requirements.txt and install MegEngine from the command line:
+
+```bash
+python3 -m pip install --upgrade pip 
+python3 -m pip install megengine -f https://megengine.org.cn/whl/mge.html
+```
+
 Convert trained weights from torch to megengine, the converted weights will be saved in ./pretained/
 
 ```bash
@@ -52,8 +59,8 @@ For example:
 Then load state dict manually.
 
 ```python
-model = modelhub.convnext_small()
-model.load_state_dict(mge.load('./pretrained/densenet201.pkl'))
+model = modelhub.densenet201()
+model.load_state_dict(mge.load('./pretrained/densenet201.pkl'))s
 # or
 model_name = 'densenet101'
 model = hub.load(
